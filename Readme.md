@@ -8,17 +8,13 @@ make run-vault
 ```
 mysql -h 127.0.0.1 -P 3306 -u root -p
 ```
-- crear una DB: 
+- Import DB config:
 ```
-CREATE DATABASE meetup
+mysql -h 127.0.0.1 -P <port> -u root -p < mysql/create.sql
 ```
 - crear un usuario admin en mysql:
 ```
 GRANT ALL PRIVILEGES ON meetup.* TO 'vault'@'%' IDENTIFIED BY 'vault123' WITH GRANT OPTION;
-```
-- Import DB config:
-```
-mysql -h 127.0.0.1 -P <port> -u root -p < mysql/create.sql
 ```
 
 - the process:

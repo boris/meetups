@@ -4,13 +4,9 @@ make run-mysql
 make run-vault
 ```
 
-- conectar a la DB:
-```
-mysql -h 127.0.0.1 -P 3306 -u root -p
-```
 - Import DB config:
 ```
-mysql -h 127.0.0.1 -P <port> -u root -p < mysql/create.sql
+mysql -h 127.0.0.1 -P <db_port> -u root -p < mysql/create.sql
 ```
 - crear un usuario admin en mysql:
 ```
@@ -27,7 +23,7 @@ Create DB config:
 ```
 vault write database/config/meetup \
 plugin_name=mysql-database-plugin \
-connection_url="{{username}}:{{password}}@tcp(172.17.0.1:)/" \
+connection_url="{{username}}:{{password}}@tcp(172.17.0.1:<db_port>)/" \
 allowed_roles="ro,rw" \
 username="vault" \
 password="vault123"

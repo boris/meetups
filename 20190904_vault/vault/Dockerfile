@@ -1,4 +1,4 @@
-FROM vault:1.1.2
+FROM vault:1.6.0
 
 EXPOSE 8200
 
